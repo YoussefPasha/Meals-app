@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 import { LoadAssets } from "./components";
 
 const fonts = {
@@ -9,8 +9,8 @@ const fonts = {
 
 export default function App() {
   return (
-    <View>
+    <LoadAssets {...{ fonts }}>
       <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    </LoadAssets>
   );
 }
