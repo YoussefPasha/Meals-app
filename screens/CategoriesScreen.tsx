@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-import { NavigationEvents } from "react-navigation";
 
 const styles = StyleSheet.create({
   screen: {
