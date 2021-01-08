@@ -1,7 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-
-interface CategoriesScreenProps {}
+import { View, Text, Button, StyleSheet } from "react-native";
+import { NavigationEvents } from "react-navigation";
 
 const styles = StyleSheet.create({
   screen: {
@@ -11,10 +10,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const CategoriesScreen = () => {
+const CategoriesScreen = (props: any) => {
   return (
     <View style={styles.screen}>
       <Text>The Categories Screen!</Text>
+      <Button
+        title="Go to Meals"
+        onPress={() => {
+          props.navigation.navigate("CategoryMealsScreen");
+        }}
+      />
     </View>
   );
 };
