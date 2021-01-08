@@ -1,6 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
 import { LoadAssets } from "./components";
+import { MealsNavigator } from "./navigation";
 
 const fonts = {
   Bold: require("./assets/fonts/OpenSans-Bold.ttf"),
@@ -10,7 +11,7 @@ const fonts = {
 export default function App() {
   return (
     <LoadAssets {...{ fonts }}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <MealsNavigator />
     </LoadAssets>
   );
 }
