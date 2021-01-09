@@ -18,15 +18,7 @@ const AuthMealsNavigator = () => {
     <AuthenticationStack.Navigator
       headerMode="float"
       screenOptions={{
-        headerTitle: "Meals App",
-        headerTitleStyle: {
-          position: "absolute",
-          left: Dimensions.get("window").width / 3,
-          top: -10,
-          fontSize: 20,
-          fontWeight: "bold",
-          color: "#E64A19",
-        },
+        headerTitle: "",
       }}
     >
       <AuthenticationStack.Screen
