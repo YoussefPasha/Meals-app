@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { CATEGORIES } from "../data/dummy-data";
 
 const styles = StyleSheet.create({
@@ -15,15 +21,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const renderGridItem = (itemData: any) => {
-  return (
-    <View style={styles.gridItem}>
-      <Text>{itemData.item.title}</Text>
-    </View>
-  );
-};
-
 const CategoriesScreen = (props: any) => {
+  const renderGridItem = (itemData: any) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          props.navigation.navigate("CategoryMealsScreen");
+        }}
+        style={styles.gridItem}
+      >
+        <View>
+          <Text>{itemData.item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
   return (
     <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
   );
