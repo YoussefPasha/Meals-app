@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-
-interface CategoryMealsScreenProps {}
+import { CATEGORIES } from "../data/dummy-data";
 
 const styles = StyleSheet.create({
   screen: {
@@ -12,9 +11,12 @@ const styles = StyleSheet.create({
 });
 
 const CategoryMealsScreen = (props: any) => {
+  const catId = props.route.params.categoryId;
+  const selectedCat = CATEGORIES.find((cat) => cat.id === catId);
   return (
     <View style={styles.screen}>
       <Text>The Category Meals Screen!</Text>
+      <Text>{selectedCat?.title}</Text>
       <Button
         title="Go to Details"
         onPress={() => {
