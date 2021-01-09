@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
+import { CATEGORIES } from "../data/dummy-data";
 
 const styles = StyleSheet.create({
   screen: {
@@ -7,19 +8,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  gridItem: {
+    flex: 1,
+    margin: 15,
+    height: 150,
+  },
 });
+
+const renderGridItem = (itemData: any) => {
+  return (
+    <View style={styles.gridItem}>
+      <Text>{itemData.item.title}</Text>
+    </View>
+  );
+};
 
 const CategoriesScreen = (props: any) => {
   return (
-    <View style={styles.screen}>
-      <Text>The Categories Screen!</Text>
-      <Button
-        title="Go to Meals"
-        onPress={() => {
-          props.navigation.navigate("CategoryMealsScreen");
-        }}
-      />
-    </View>
+    <FlatList data={CATEGORIES} renderItem={renderGridItem} numColumns={2} />
   );
 };
 
