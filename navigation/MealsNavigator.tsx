@@ -16,18 +16,22 @@ const fonts = {
 const AuthenticationStack = createStackNavigator();
 const AuthMealsNavigator = () => {
   return (
-    <AuthenticationStack.Navigator headerMode="float">
+    <AuthenticationStack.Navigator
+      headerMode="float"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor:
+            Platform.OS === "android" ? colors.primaryColor : "white",
+        },
+        headerTintColor:
+          Platform.OS === "android" ? "white" : colors.primaryColor,
+      }}
+    >
       <AuthenticationStack.Screen
         name="CategoriesScreen"
         component={CategoriesScreen}
         options={{
           headerTitle: "Meal Categories",
-          headerStyle: {
-            backgroundColor:
-              Platform.OS === "android" ? colors.primaryColor : "white",
-          },
-          headerTintColor:
-            Platform.OS === "android" ? "white" : colors.primaryColor,
         }}
       />
       <AuthenticationStack.Screen
@@ -35,12 +39,6 @@ const AuthMealsNavigator = () => {
         component={CategoryMealsScreen}
         options={{
           headerTitle: "",
-          headerStyle: {
-            backgroundColor:
-              Platform.OS === "android" ? colors.primaryColor : "white",
-          },
-          headerTintColor:
-            Platform.OS === "android" ? "white" : colors.primaryColor,
         }}
       />
       <AuthenticationStack.Screen
