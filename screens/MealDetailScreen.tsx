@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-interface MealDetailScreenProps {}
+import { CATEGORIES, MEALS } from "../data/dummy-data";
 
 const styles = StyleSheet.create({
   screen: {
@@ -11,10 +11,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const MealDetailScreen = () => {
+const MealDetailScreen = (props: any) => {
+  const mealId = props.route.params.mealId;
+
+  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+  const { setOptions } = props.navigation;
+
+  useEffect(() => {
+    setOptions({ headerTitle: selectedMeal?.title });
+  }, [setOptions]);
+
   return (
     <View style={styles.screen}>
-      <Text>The MealDetail Screen!</Text>
+      <Text>{selectedMeal?.title}</Text>
     </View>
   );
 };

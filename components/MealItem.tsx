@@ -49,30 +49,41 @@ const styles = StyleSheet.create({
   },
 });
 
-const MealItem = (props: any) => {
+interface MealItemProps {
+  onSelectMeal: VoidFunction;
+  image: string;
+  title: string;
+  affordability: string;
+  complexity: string;
+  duration: string;
+}
+
+const MealItem = ({
+  onSelectMeal,
+  image,
+  title,
+  affordability,
+  complexity,
+  duration,
+}: MealItemProps) => {
   return (
     <View style={styles.mealItem}>
-      <TouchableOpacity onPress={props.onSelectMeal}>
+      <TouchableOpacity onPress={onSelectMeal}>
         <View>
           <View style={{ ...styles.mealRow, ...styles.mealHeader }}>
-            <ImageBackground
-              source={{ uri: props.image }}
-              style={styles.bgImage}
-            >
+            <ImageBackground source={{ uri: image }} style={styles.bgImage}>
               <View style={styles.titleContainer}>
                 <Text style={styles.title} numberOfLines={1}>
-                  {props.title}
+                  {title}
                 </Text>
               </View>
             </ImageBackground>
           </View>
 
           <View style={{ ...styles.mealRow, ...styles.mealDetail }}>
-            <Text style={styles.detailFont}>{props.duration} m</Text>
-            <Text style={styles.detailFont}>
-              {props.complexity.toUpperCase()}
-            </Text>
-            <Text style={styles.detailFont}>{props.affordability}</Text>
+            <Text style={styles.detailFont}>{duration} m</Text>
+            <Text style={styles.detailFont}>{complexity.toUpperCase()}</Text>
+            <Text style={styles.detailFont}>{affordability}</Text>
           </View>
         </View>
       </TouchableOpacity>

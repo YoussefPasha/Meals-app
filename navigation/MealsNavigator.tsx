@@ -25,6 +25,7 @@ const AuthMealsNavigator = () => {
         },
         headerTintColor:
           Platform.OS === "android" ? "white" : colors.primaryColor,
+        headerTitleStyle: { fontSize: 22, fontFamily: "bold" },
       }}
     >
       <AuthenticationStack.Screen
@@ -44,6 +45,9 @@ const AuthMealsNavigator = () => {
       <AuthenticationStack.Screen
         name="MealDetailScreen"
         component={MealDetailScreen}
+        options={{
+          headerTitle: "",
+        }}
       />
     </AuthenticationStack.Navigator>
   );
