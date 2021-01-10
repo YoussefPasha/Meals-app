@@ -1,5 +1,6 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
 
@@ -8,6 +9,7 @@ import CategoryMealsScreen from "../screens/CategoryMealsScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 import { LoadAssets } from "../components";
 import colors from "../constants/colors";
+import FavoritesScreen from "../screens/FavoritesScreen";
 
 const fonts = {
   regular: require("../assets/fonts/OpenSans-Regular.ttf"),
@@ -53,11 +55,16 @@ const AuthMealsNavigator = () => {
   );
 };
 
-export default function MealsNavigator() {
+const Tab = createBottomTabNavigator();
+
+export default function MealsTabNavigator() {
   return (
     <LoadAssets {...{ fonts }}>
       <StatusBar style="dark" />
-      <AuthMealsNavigator />
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={AuthMealsNavigator} />
+        <Tab.Screen name="Favorites" component={FavoritesScreen} />
+      </Tab.Navigator>
     </LoadAssets>
   );
 }
