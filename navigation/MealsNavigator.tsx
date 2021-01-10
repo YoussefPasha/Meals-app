@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StatusBar } from "expo-status-bar";
 import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 
 import CategoriesScreen from "../screens/CategoriesScreen";
 import CategoryMealsScreen from "../screens/CategoryMealsScreen";
@@ -56,13 +57,19 @@ const AuthMealsNavigator = () => {
   );
 };
 
-const Tab = createBottomTabNavigator();
+const Tab: any =
+  Platform.OS === "android"
+    ? createMaterialBottomTabNavigator()
+    : createBottomTabNavigator();
 
 export default function MealsTabNavigator() {
   return (
     <LoadAssets {...{ fonts }}>
       <StatusBar style="dark" />
       <Tab.Navigator
+        initialRouteName="Home"
+        activeColor="white"
+        shifting={true}
         tabBarOptions={{
           activeTintColor: colors.primaryColor,
           inactiveTintColor: "gray",
@@ -74,8 +81,8 @@ export default function MealsTabNavigator() {
             fontFamily: "bold",
           },
         }}
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+        screenOptions={({ route }: any) => ({
+          tabBarIcon: ({ focused, color, size }: any) => {
             let iconName: any;
 
             if (route.name === "Home") {
@@ -84,12 +91,24 @@ export default function MealsTabNavigator() {
               iconName = focused ? "ios-star" : "ios-star-outline";
             }
             // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <Ionicons name={iconName} size={20} color={color} />;
           },
         })}
       >
-        <Tab.Screen name="Home" component={AuthMealsNavigator} />
-        <Tab.Screen name="Favorites" component={FavoritesScreen} />
+        <Tab.Screen
+          name="Home"
+          component={AuthMealsNavigator}
+          options={{
+            tabBarColor: colors.primaryColor,
+          }}
+        />
+        <Tab.Screen
+          name="Favorites"
+          component={FavoritesScreen}
+          options={{
+            tabBarColor: colors.accentColor,
+          }}
+        />
       </Tab.Navigator>
     </LoadAssets>
   );
