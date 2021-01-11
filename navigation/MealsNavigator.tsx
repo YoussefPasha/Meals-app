@@ -146,7 +146,17 @@ const FilterStack = createStackNavigator();
 
 const FilterNav = () => {
   return (
-    <FilterStack.Navigator>
+    <FilterStack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor:
+            Platform.OS === "android" ? colors.primaryColor : "white",
+        },
+        headerTintColor:
+          Platform.OS === "android" ? "white" : colors.primaryColor,
+        headerTitleStyle: { fontSize: 22, fontFamily: "bold" },
+      }}
+    >
       <FilterStack.Screen
         name="FilterScreen"
         component={FiltersScreen}
