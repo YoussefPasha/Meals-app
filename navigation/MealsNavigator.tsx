@@ -18,6 +18,7 @@ const fonts = {
   bold: require("../assets/fonts/OpenSans-Bold.ttf"),
 };
 const AuthenticationStack = createStackNavigator();
+
 const AuthMealsNavigator = () => {
   return (
     <AuthenticationStack.Navigator
@@ -57,6 +58,34 @@ const AuthMealsNavigator = () => {
   );
 };
 
+const FavStack = createStackNavigator();
+const FavNavigator = () => {
+  return (
+    <FavStack.Navigator
+      headerMode="float"
+      screenOptions={{
+        headerStyle: {
+          backgroundColor:
+            Platform.OS === "android" ? colors.primaryColor : "white",
+        },
+        headerTintColor:
+          Platform.OS === "android" ? "white" : colors.primaryColor,
+        headerTitle: "Your Favorites",
+        headerTitleStyle: { fontSize: 22, fontFamily: "bold" },
+      }}
+    >
+      <FavStack.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+      ></FavStack.Screen>
+      <FavStack.Screen
+        name="MealDetailScreen"
+        component={MealDetailScreen}
+      ></FavStack.Screen>
+    </FavStack.Navigator>
+  );
+};
+
 const Tab: any =
   Platform.OS === "android"
     ? createMaterialBottomTabNavigator()
@@ -82,7 +111,7 @@ export default function MealsTabNavigator() {
           },
         }}
         screenOptions={({ route }: any) => ({
-          tabBarIcon: ({ focused, color, size }: any) => {
+          tabBarIcon: ({ focused, color }: any) => {
             let iconName: any;
 
             if (route.name === "Home") {
@@ -104,7 +133,7 @@ export default function MealsTabNavigator() {
         />
         <Tab.Screen
           name="Favorites"
-          component={FavoritesScreen}
+          component={FavNavigator}
           options={{
             tabBarColor: colors.accentColor,
           }}
