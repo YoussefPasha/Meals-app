@@ -170,8 +170,20 @@ export default function MainNavigator() {
   return (
     <LoadAssets {...{ fonts }}>
       <StatusBar style="dark" />
-      <Drawer.Navigator>
-        <Drawer.Screen name="MealsFavs" component={MealsTab}></Drawer.Screen>
+      <Drawer.Navigator
+        drawerContentOptions={{
+          activeTintColor: colors.primaryColor,
+          labelStyle: {
+            fontFamily: "bold",
+            fontSize: 18,
+          },
+        }}
+      >
+        <Drawer.Screen
+          name="MealsFavs"
+          options={{ title: "Meals" }}
+          component={MealsTab}
+        ></Drawer.Screen>
         <Drawer.Screen name="Filters" component={FilterNav}></Drawer.Screen>
       </Drawer.Navigator>
     </LoadAssets>
