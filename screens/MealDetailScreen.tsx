@@ -8,10 +8,9 @@ import {
   Dimensions,
 } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
+import { useSelector } from "react-redux";
 
-import { MEALS } from "../data/dummy-data";
 import { CustomHeaderButton } from "../components";
-import colors from "../constants/colors";
 
 const styles = StyleSheet.create({
   details: {
@@ -55,7 +54,9 @@ const ListItem = (props: any) => {
 const MealDetailScreen = (props: any) => {
   const mealId = props?.route?.params?.mealId;
 
-  const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+  const availableMeals = useSelector((state: any) => state.meals.meals);
+
+  const selectedMeal = availableMeals.find((meal: any) => meal.id === mealId);
 
   const { setOptions } = props?.navigation;
 
@@ -93,11 +94,11 @@ const MealDetailScreen = (props: any) => {
       <Text style={{ ...styles.detailFont, ...styles.boldTitle }}>
         Ingrediants
       </Text>
-      {selectedMeal?.ingrediants.map((ingredient, index) => (
+      {selectedMeal?.ingrediants.map((ingredient: any, index: any) => (
         <ListItem key={index}>{ingredient}</ListItem>
       ))}
       <Text style={{ ...styles.detailFont, ...styles.boldTitle }}>Steps</Text>
-      {selectedMeal?.steps.map((step, index) => (
+      {selectedMeal?.steps.map((step: any, index: any) => (
         <ListItem key={index}>{step}</ListItem>
       ))}
     </ScrollView>
