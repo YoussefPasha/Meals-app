@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { CATEGORIES } from "../data/dummy-data";
 import { MealList } from "../components";
+import { Text, View } from "react-native";
 
 const CategoryMealsScreen = (props: any) => {
   const catId = props.route.params.categoryId;
@@ -14,6 +15,16 @@ const CategoryMealsScreen = (props: any) => {
   const displayedMeals = availableMeals.filter(
     (meal: any) => meal.categoryIds.indexOf(catId) >= 0
   );
+
+  if (displayedMeals.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <Text style={{ fontFamily: "regular", fontSize: 16 }}>
+          No meals found. maybe check your filters!
+        </Text>
+      </View>
+    );
+  }
 
   const { setOptions } = props.navigation;
   useEffect(() => {
