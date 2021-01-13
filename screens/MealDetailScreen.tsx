@@ -8,9 +8,10 @@ import {
   Dimensions,
 } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { CustomHeaderButton } from "../components";
+import { toggleFavorite } from "../store/actions/meals";
 
 const styles = StyleSheet.create({
   details: {
@@ -59,6 +60,10 @@ const MealDetailScreen = (props: any) => {
   const selectedMeal = availableMeals.find((meal: any) => meal.id === mealId);
 
   const { setOptions } = props?.navigation;
+  const dispatch = useDispatch();
+  const toggleFavHandler = () => {
+    dispatch(toggleFavorite(mealId));
+  };
 
   useEffect(() => {
     setOptions({
@@ -68,14 +73,12 @@ const MealDetailScreen = (props: any) => {
           <Item
             title="Favorite"
             iconName="ios-star"
-            onPress={() => {
-              console.log("FAV!");
-            }}
+            onPress={toggleFavHandler}
           />
         </HeaderButtons>
       ),
     });
-  }, [setOptions]);
+  }, [setOptions, toggleFavHandler]);
 
   return (
     <ScrollView>
