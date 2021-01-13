@@ -9,7 +9,7 @@
 
 ## Screenshots
 
-
+<div align="center">
 <div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/1.png" width = "300" >
 </div>
@@ -28,4 +28,4 @@
 <div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/6.png"  width = "300">
 </div>
-
+</div>
