@@ -12,10 +12,20 @@
 
 <div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/1.png" width = "300" >
+</div>
+<div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/2.png" width = "300" >
+</div>
+<div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/3.png"  width = "300">
+</div>
+<div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/4.png"  width = "300" >
+</div>
+<div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/5.png"  width = "300">
+</div>
+<div>
 <img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/6.png"  width = "300">
 </div>
 
