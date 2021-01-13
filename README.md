@@ -11,11 +11,11 @@
 
 
 <p>
-    ![Preview](images/1.png?raw=true)
-    ![Preview](images/2.png?raw=true)
-    ![Preview](images/3.png?raw=true)
-    ![Preview](images/4.png?raw=true)
-    ![Preview](images/5.png?raw=true)
-    ![Preview](images/6.png?raw=true)
+<img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/1.png" alt="feed example" width = "400" >
+<img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/2.png" alt="upload photo example"width = "400" >
+<img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/3.png" alt="go to a profile from feed" width = "400">
+<img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/4.png" alt="edit profile example" width = "400" >
+<img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/5.png" alt="comment and activity feed example" width = "400">
+<img src="https://github.com/YoussefPasha/Meals-app/blob/main/images/6.png" alt="comment and activity feed example" width = "400">
 </p>
 
