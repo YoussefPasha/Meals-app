@@ -56,6 +56,9 @@ const MealDetailScreen = (props: any) => {
   const mealId = props?.route?.params?.mealId;
 
   const availableMeals = useSelector((state: any) => state.meals.meals);
+  const favoriteMeals = useSelector((state: any) =>
+    state.meals.favoriteMeals.some((meal: any) => meal.id === mealId)
+  );
 
   const selectedMeal = availableMeals.find((meal: any) => meal.id === mealId);
 
@@ -72,7 +75,7 @@ const MealDetailScreen = (props: any) => {
         <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
           <Item
             title="Favorite"
-            iconName="ios-star"
+            iconName={favoriteMeals ? "ios-star" : "ios-star-outline"}
             onPress={toggleFavHandler}
           />
         </HeaderButtons>
